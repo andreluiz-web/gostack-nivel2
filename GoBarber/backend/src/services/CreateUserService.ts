@@ -3,7 +3,7 @@
 import { getRepository } from 'typeorm';
 import { hash } from 'bcryptjs';
 import User from '../models/User';
-import Error from '../Error/Error';
+import AppError from '../Error/AppError';
 
 interface RequestDTO {
     name: string;
@@ -22,7 +22,7 @@ class CreateUserService {
         });
 
         if (checkExistsUser) {
-            throw new Error('Email address already used');
+            throw new AppError('Email address already used');
         }
 
         const user = userRepository.create({
