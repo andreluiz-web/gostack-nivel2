@@ -1,6 +1,7 @@
 import { Response, Request, NextFunction, request } from 'express';
 import { verify } from 'jsonwebtoken';
 import AuthConfig from '../config/Auth';
+import Error from '../Error/Error';
 
 interface TokenPayload {
     iat: number;
@@ -17,7 +18,7 @@ function ensureAuthenticated(
 
     // verifica se o token foi passado
     if (!authHeader) {
-        throw new Error('JWT Token is missing');
+        throw new Error('JWT Token is missing', 401);
     }
 
     // separa o type do token do próprio token
@@ -36,7 +37,7 @@ function ensureAuthenticated(
 
         return next();
     } catch {
-        throw new Error('invalid JWT token');
+        throw new Error('invalid JWT token', 401);
     }
 }
 

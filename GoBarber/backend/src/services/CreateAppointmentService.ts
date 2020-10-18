@@ -4,6 +4,7 @@ import { getCustomRepository } from 'typeorm';
 import { startOfHour } from 'date-fns';
 import Appointment from '../models/Appointment';
 import AppointmentsRepository from '../repositories/AppointmentsRepository';
+import Error from '../Error/Error';
 
 interface RequestDTO {
     provider_id: string;

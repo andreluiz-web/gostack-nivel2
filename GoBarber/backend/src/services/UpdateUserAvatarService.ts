@@ -5,6 +5,7 @@ import path from 'path';
 import fs from 'fs';
 import User from '../models/User';
 import uploadConfig from '../config/Upload';
+import Error from '../Error/Error';
 
 interface RequestDTO {
     user_id: string;
@@ -21,7 +22,7 @@ class UpdateUserAvatarService {
         const user = await usersRepository.findOne(user_id);
 
         if (!user) {
-            throw new Error('Only authenticates users can change avatar.');
+            throw new Error('Only authenticates users can change avatar.', 401);
         }
 
         if (user.avatar) {
