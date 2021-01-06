@@ -10,6 +10,7 @@
   "dependencies": {
     "@types/express": "^4.17.8",
     "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "date-fns": "^2.16.1",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
@@ -20,6 +21,7 @@
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
+    "@types/cors": "^2.8.9",
     "@types/jsonwebtoken": "^8.5.0",
     "@types/multer": "^1.4.4",
     "@typescript-eslint/eslint-plugin": "^4.3.0",
