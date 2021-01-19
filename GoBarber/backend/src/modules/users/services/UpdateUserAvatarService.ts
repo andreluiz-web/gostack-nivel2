@@ -3,9 +3,9 @@
 import { getRepository } from 'typeorm';
 import path from 'path';
 import fs from 'fs';
-import User from '../models/User';
-import uploadConfig from '../config/Upload';
-import AppError from '../Error/AppError';
+import User from '@modules/users/infra/typeorm/entities/User';
+import AppError from '@shared/error/AppError';
+import uploadConfig from '../../../config/Upload';
 
 interface RequestDTO {
     user_id: string;
@@ -29,7 +29,6 @@ class UpdateUserAvatarService {
         }
 
         if (user.avatar) {
-            // deletar avatar anterior
             const userAvatarFilePath = path.join(
                 uploadConfig.directory,
                 user.avatar,

@@ -2,9 +2,9 @@
 /* eslint-disable class-methods-use-this */
 import { getCustomRepository } from 'typeorm';
 import { startOfHour } from 'date-fns';
-import Appointment from '../models/Appointment';
+import Appointment from '@modules/appointments/infra/typeorm/entities/Appointment';
+import AppError from '@shared/error/AppError';
 import AppointmentsRepository from '../repositories/AppointmentsRepository';
-import AppError from '../Error/AppError';
 
 interface RequestDTO {
     provider_id: string;
